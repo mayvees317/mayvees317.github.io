@@ -45,8 +45,10 @@ jobs:
           echo 'export GEM_HOME="$HOME/.gem/ruby/2.7.7"' >> $GITHUB_ENV
           echo 'export GEM_PATH="$HOME/.gem/ruby/2.7.7"' >> $GITHUB_ENV
           echo 'export PATH="$HOME/.gem/ruby/2.7.7/bin:$PATH"' >> $GITHUB_ENV
-      - name: Install ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y imagemagick
+      - name: Install ImageMagick and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick libmagickwand-dev
       - name: Install Jekyll
         run: |
           gem install jekyll bundler --user-install
