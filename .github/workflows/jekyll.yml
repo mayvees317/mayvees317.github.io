@@ -39,11 +39,18 @@ jobs:
           git clone https://github.com/rbenv/ruby-build.git /tmp/ruby-build
           /tmp/ruby-build/bin/ruby-build 2.7.7 /opt/hostedtoolcache/Ruby/2.7.7/x64
           touch /opt/hostedtoolcache/Ruby/2.7.7/x64.complete
+      - name: Set up Ruby environment
+        run: |
+          echo 'export PATH="/opt/hostedtoolcache/Ruby/2.7.7/bin:$PATH"' >> $GITHUB_ENV
+          echo 'export GEM_HOME="$HOME/.gem/ruby/2.7.7"' >> $GITHUB_ENV
+          echo 'export GEM_PATH="$HOME/.gem/ruby/2.7.7"' >> $GITHUB_ENV
+          echo 'export PATH="$HOME/.gem/ruby/2.7.7/bin:$PATH"' >> $GITHUB_ENV
       - name: Install ImageMagick
         run: sudo apt-get update && sudo apt-get install -y imagemagick
       - name: Install Jekyll
         run: |
-          gem install jekyll bundler
+          gem install jekyll bundler --user-install
+          echo "$(ruby -e 'puts Gem.user_dir')/bin" >> $GITHUB_PATH
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
