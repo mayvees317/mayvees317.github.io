@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
 
-// Memoize WeekDiv since it's a pure component
+// Memoize WeekDiv since it's a pure component 1
 export const WeekDiv = memo(({ date }) => (
     <div
       data-date={date.date}
