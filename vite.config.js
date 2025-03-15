@@ -46,7 +46,7 @@ function metadataPlugin() {
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/mayvees',
+  base: '/my-life-in-weeks',
   plugins: [
     react(),
     tailwindcss(),
