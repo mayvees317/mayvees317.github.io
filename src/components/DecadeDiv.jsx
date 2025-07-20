@@ -19,7 +19,7 @@ export const DecadeDiv = memo(
         d.setDate(d.getDate() + 7)
       ) {
         const weekDate = d.toISOString().split("T")[0];
-        const weekStart = new Date(d);
+        const weekStart = new Date(d.getTime() + 60 * 60 * 1000);
         const weekEnd = new Date(d);
         weekEnd.setDate(weekStart.getDate() + 7);
 
